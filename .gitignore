@@ -139,3 +139,6 @@ resource/aigs/*
 !resource/aigs/.gitkeep
 resource/instance/*
 !resource/instance/.gitkeep
+resource/logs/*
+!resource/logs/.gitkeep
+

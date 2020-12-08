@@ -1,8 +1,10 @@
 import os
 from typing import Dict
 
-template_dir = "../../resource/template"
-instance_dir = "../../resource/instance"
+# 模板文件存放的目录
+TEMPLATE_DIR = os.path.join('..', '..', 'resource', 'template')
+# 模板例化结果的存放目录
+INSTANCE_DIR = os.path.join('..', '..', 'resource', 'instance')
 
 
 def instantiate(file_name: str, inst_dict: Dict[str, str]) -> str:
@@ -13,9 +15,9 @@ def instantiate(file_name: str, inst_dict: Dict[str, str]) -> str:
     :return: 生成的脚本文件路径
     """
     # 脚本模板的完整相对路径文件名
-    source_file = os.path.join(template_dir, file_name)
+    source_file = os.path.join(TEMPLATE_DIR, file_name)
     # 要例化到的真实文件的完整相对路径文件名
-    dest_file = os.path.join(instance_dir, file_name)
+    dest_file = os.path.join(INSTANCE_DIR, file_name)
     # 覆盖写模式打开要例化到的文件
     with open(dest_file, 'w') as dest_f:
         # 读模式打开模板文件
@@ -36,7 +38,7 @@ def test_instantiate():
     :return:
     """
     template_file_name = "aig_check_invar"
-    full_instance_file_name = os.path.join(instance_dir, template_file_name)
+    full_instance_file_name = os.path.join(INSTANCE_DIR, template_file_name)
     assert instantiate(template_file_name, {"file_name": "LauZyHou"}) == full_instance_file_name
     assert instantiate(template_file_name, {"file_name": ""}) == full_instance_file_name
     assert instantiate(template_file_name, {"file_name": "\n"}) == full_instance_file_name
