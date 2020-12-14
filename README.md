@@ -12,6 +12,8 @@
 
 `resource/instance`：从`resource/template`下的模板生成的临时实例
 
+`resource/logs`：运行时生成的日志文件
+
 `src`：源代码
 
 `src/tools`：工具类
